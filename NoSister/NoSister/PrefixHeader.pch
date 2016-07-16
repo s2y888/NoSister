@@ -1,0 +1,34 @@
+//
+//  PrefixHeader.pch
+//  NoSister
+//
+//  Created by 杨 尚毅 on 16/7/16.
+//  Copyright © 2016年 YSY. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+/** 如果希望某些内容能拷贝到任何源代码文件（OC、C、C++等）,那么就不要写在#ifdef __OBJC__ 和 #endif之间 **/
+
+/** 在#ifdef __OBJC__ 和 #endif 之间的内容，只会拷贝到OC源代码文件中，不会拷贝到其他语言的源代码文件中  **/
+
+#ifdef __OBJC__
+/** 日志 **/
+#ifdef DEBUG
+#define YSYLog(...) NSLog(__VA_ARGS__)
+#else
+#define YSYLog(...)
+#endif
+
+/** 颜色 **/
+#define YSYColorA(r, g, b ,a) [UIColor colorWithRed:(r)/255.f green:(g)/255.f blue:(b)/255.f alpha:(a)/255.f]
+#define YSYColor(r, g, b) YSYColorA((r), (g), (b), 255)
+#define YSYRandomColor YSYColor(arc4random_uniform(255), arc4random_uniform(255), arc4random_uniform(255))
+
+#endif
+
+/** 在#ifdef __OBJC__ 和 #endif 之间的内容，只会拷贝到OC源代码文件中，不会拷贝到其他语言的源代码文件中  **/
+
+
+#endif
